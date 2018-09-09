@@ -1,0 +1,7 @@
+[package]
+name = "nthash_bug"
+version = "0.1.0"
+authors = ["Luiz Irber <luiz.irber@gmail.com>"]
+
+[dependencies]
+nthash = { git = "https://github.com/luizirber/nthash" }

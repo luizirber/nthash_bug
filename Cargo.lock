@@ -1,0 +1,14 @@
+[[package]]
+name = "nthash"
+version = "0.1.0"
+source = "git+https://github.com/luizirber/nthash#787faba1d9918791076d556dca0ea4bc38c85330"
+
+[[package]]
+name = "nthash_bug"
+version = "0.1.0"
+dependencies = [
+ "nthash 0.1.0 (git+https://github.com/luizirber/nthash)",
+]
+
+[metadata]
+"checksum nthash 0.1.0 (git+https://github.com/luizirber/nthash)" = "<none>"
