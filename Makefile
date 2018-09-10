@@ -13,3 +13,5 @@ test: nt_opt nt_article
 	./nt_article TGCAG
 	python nthash.py TGCAG
 	cargo run -q TGCAG
+
+.PHONY: test
