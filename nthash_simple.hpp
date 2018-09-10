@@ -1,8 +1,8 @@
 #include <string>
-#include <iostream>
-#include <iomanip>
 
 using namespace std;
+
+namespace nthash {
 
 uint64_t h(char i) {
   switch (i) {
@@ -49,35 +49,24 @@ inline uint64_t NT64(const char * kmerSeq, const unsigned k) {
   return hVal;
 }
 
-inline uint64_t NT64F(const char * kmerSeq, const unsigned k) {
+inline uint64_t NTF64(const char * kmerSeq, const unsigned k) {
   uint64_t hVal = 0;
   for(unsigned i=0; i < k; i++)
     hVal ^= rol(h(kmerSeq[i]), k-1-i);
   return hVal;
 }
 
-inline uint64_t NT64R(const char * kmerSeq, const unsigned k) {
+inline uint64_t NTR64(const char * kmerSeq, const unsigned k) {
   uint64_t hVal = 0;
   for(unsigned i=0; i < k; i++)
     hVal ^= rol(rc(kmerSeq[k-i-1]), k-1-i);
   return hVal;
 }
 
-inline uint64_t NT64C(const char * kmerSeq, const unsigned k) {
-    uint64_t fhVal=0, rhVal=0;
-    fhVal=NT64F(kmerSeq, k);
-    rhVal=NT64R(kmerSeq, k);
+inline uint64_t NTC64(const char * kmerSeq, const unsigned k, uint64_t& fhVal, uint64_t& rhVal) {
+    fhVal=NTF64(kmerSeq, k);
+    rhVal=NTR64(kmerSeq, k);
     return (rhVal<fhVal)? rhVal : fhVal;
 }
 
-int main(int argc, char** argv) {
-    string seq = argv[1];
-
-    uint64_t hVal, fhVal, rhVal;
-
-    cout << "NT64C 0x" << hex << setfill('0') << setw(16) << NT64C(seq.c_str(), seq.size()) << endl;
-    cout << "fhVal 0x" << hex << setfill('0') << setw(16) << NT64F(seq.c_str(), seq.size()) << endl;
-    cout << "rhVal 0x" << hex << setfill('0') << setw(16) << NT64R(seq.c_str(), seq.size()) << endl;
-
-    return 0;
 }

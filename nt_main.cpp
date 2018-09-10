@@ -1,4 +1,10 @@
-#include "nthash.hpp"
+#ifndef NTHASH_OPT
+  #include "nthash_simple.hpp"
+  using namespace nthash;
+#else
+  #include "nthash.hpp"
+#endif
+
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -6,7 +12,7 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    std::string seq = argv[1];
+    string seq = argv[1];
 
     uint64_t hVal, fhVal, rhVal;
 
