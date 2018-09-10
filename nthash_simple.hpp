@@ -6,36 +6,26 @@ namespace nthash {
 
 uint64_t h(char i) {
   switch (i) {
-    case 'A':
-      return 0x3c8bfbb395c60474;
-    case 'C':
-      return 0x3193c18562a02b4c;
-    case 'G':
-      return 0x20323ed082572324;
-    case 'T':
-      return 0x295549f54be24456;
-    case 'N':
-      return 0x0000000000000000;
-    default:
-      break;
+    case 'A': return 0x3c8bfbb395c60474;
+    case 'C': return 0x3193c18562a02b4c;
+    case 'G': return 0x20323ed082572324;
+    case 'T': return 0x295549f54be24456;
+    case 'N': return 0x0000000000000000;
+    default: break;
   }
+  return 0;
 }
 
 uint64_t rc(char i) {
   switch (i) {
-    case 'A':
-      return 0x295549f54be24456;
-    case 'C':
-      return 0x20323ed082572324;
-    case 'G':
-      return 0x3193c18562a02b4c;
-    case 'T':
-      return 0x3c8bfbb395c60474;
-    case 'N':
-      return 0x0000000000000000;
-    default:
-      break;
+    case 'A': return 0x295549f54be24456;
+    case 'C': return 0x20323ed082572324;
+    case 'G': return 0x3193c18562a02b4c;
+    case 'T': return 0x3c8bfbb395c60474;
+    case 'N': return 0x0000000000000000;
+    default: break;
   }
+  return 0;
 }
 
 uint64_t rol(uint64_t v, unsigned k) {
