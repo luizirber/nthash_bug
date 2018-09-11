@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
     uint64_t hVal, fhVal, rhVal;
 
     hVal = NTC64(seq.c_str(), seq.size(), fhVal, rhVal); // initial hash value
-    cout << "NT64C 0x" << hex << setfill('0') << setw(16) << hVal << endl;
+    cout << "NTC64 0x" << hex << setfill('0') << setw(16) << hVal << endl;
     cout << "fhVal 0x" << hex << setfill('0') << setw(16) << fhVal << endl;
     cout << "rhVal 0x" << hex << setfill('0') << setw(16) << rhVal << endl;
 
