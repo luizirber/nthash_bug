@@ -2,6 +2,8 @@
 #include "catch.hpp"
 
 #include "autocheck/autocheck.hpp"
+#include "autocheck/check.hpp"
+
 namespace ac = autocheck;
 
 #include "nthash.hpp"
@@ -39,9 +41,11 @@ struct prop_nt_oracle {
 };
 
 
-TEST_CASE( "nthash optimized matches nthash article outputs", "[nthash]" ) {
-    SECTION("oracle") {
-      ac::check<std::string>(prop_nt_oracle(), 100,
-          ac::make_arbitrary(seq_generator()));
-    }
+TEST_CASE( "oracle", "[nthash]" ) {
+  ac::catch_reporter rep;
+
+  SECTION("optimized matches simple implementation outputs?") {
+    ac::check<std::string>(prop_nt_oracle(), 100,
+        ac::make_arbitrary(seq_generator()), rep);
+  }
 }
