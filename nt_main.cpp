@@ -2,7 +2,11 @@
   #include "nthash_simple.hpp"
   using namespace nthash;
 #else
-  #include "nthash.hpp"
+  #ifndef NTHASH_104
+    #include "nthash.hpp"
+  #else
+    #include "nthash_104.hpp"
+  #endif
 #endif
 
 #include <string>

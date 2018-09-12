@@ -2,3 +2,6 @@
 **/*.rs.bk
 nt_article
 nt_opt
+nt_104
+test/test
+test/test_104
